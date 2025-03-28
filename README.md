@@ -1,8 +1,8 @@
 # Handling GEDTM30 Data with R Terra Package
 
-This script demonstrates how to load, visualize, crop and save spatial data from [GEDTM30](https://github.com/openlandmap/GEDTM30/tree/main), using the `terra` package in R, without downloading the entire file.
+This script demonstrates how to load, visualize, crop, and save spatial data from [GEDTM30](https://github.com/openlandmap/GEDTM30/tree/main), using the `terra` package in R, without downloading the entire file.
 
-Availble products:
+Available products:
 - Ensemble Digital Terrain Model
 - Standard Deviation EDTM
 - Difference from Mean Elevation
@@ -22,12 +22,12 @@ Availble products:
 - Tangential Curvature
 - Topographic Wetness Index
 
-This links for acessing the rasters is [here](https://github.com/openlandmap/GEDTM30/blob/main/metadata/cog_list.csv).
+The product list links are [here](https://github.com/openlandmap/GEDTM30/blob/main/metadata/cog_list.csv).
 
 ## Code
 
 ```R
-# Terra package to load and hanfle raster data
+# Terra package to load and handle raster data
 library(terra)
 
 # Product link (for DTM - digital terrain model)
@@ -44,7 +44,7 @@ terra::plot(dtm)
 # Define the extent for area of interest
 ext <- terra::ext(-48.9, -48.3, -27.9, -27.1) # xmin, xmax, ymin, ymax
 
-# Connvert extent to polygon
+# Convert extent to polygon
 ext_poly <- terra::as.polygons(ext, crs= terra::crs(dtm))
 
 # Plot the extent to see if it is correct
