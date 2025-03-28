@@ -1,6 +1,6 @@
 # Handling GEDTM30 Data with R Terra Package
 
-This script demonstrates how to load, visualize, crop, and save spatial data from [GEDTM30](https://github.com/openlandmap/GEDTM30/tree/main), using the `terra` package in R, without downloading the entire file.
+This script demonstrates how to load, visualize, crop, and save spatial data from [GEDTM30](https://github.com/openlandmap/GEDTM30/tree/main) using the `R` `terra` package without downloading the entire file.
 
 Available products:
 - Ensemble Digital Terrain Model
@@ -63,4 +63,8 @@ writeRaster(dtm_cp, "aoi_dtm.tif", gdal=c("COMPRESS=NONE", "TFW=YES"), overwrite
 
 ### Notes
 - The vsi=TRUE option leverages GDAL's /vsicurl/ to read only the subset (extent area) data from the remote file.
-- /vsicurl/ is a file system handler that allows on-the-fly random reading of files available through HTTP/FTP web protocols, without prior download of the entire file. It requires GDAL to be built against libcurl. See GDAL documentation [here](https://gdal.org/en/stable/user/virtual_file_systems.html#vsicurl-http-https-ftp-files-random-access) 
+- /vsicurl/ is a file system handler that allows on-the-fly random reading of files available through HTTP/FTP web protocols, without prior download of the entire file. It requires GDAL to be built against libcurl. See GDAL documentation [here](https://gdal.org/en/stable/user/virtual_file_systems.html#vsicurl-http-https-ftp-files-random-access)
+
+### Load in QGIS
+- Get the link of the layer you are interested in [GEDTM30 cog_list](https://github.com/openlandmap/GEDTM30/blob/main/metadata/cog_list.csv)
+- In QGIS: Layer --> Add Layer --> Add Raster Layer --> Choose HTTP(s) protocol --> Paste the link in URI field. These instructions are in the page [GEDTM30](https://github.com/openlandmap/GEDTM30/tree/main), more specifically in the [gif](https://github.com/openlandmap/GEDTM30/blob/main/img/open_file_qgis_copy_link.gif). 
