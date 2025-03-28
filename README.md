@@ -60,3 +60,7 @@ terra::plot(dtm_cp)
 writeRaster(dtm_cp, "aoi_dtm.tif", gdal=c("COMPRESS=NONE", "TFW=YES"), overwrite= T)
 
 ```
+
+### Notes
+- The vsi=TRUE option leverages GDAL's /vsicurl/ to read only the subset (extent area) data from the remote file.
+- /vsicurl/ is a file system handler that allows on-the-fly random reading of files available through HTTP/FTP web protocols, without prior download of the entire file. It requires GDAL to be built against libcurl. See GDAL documentation [here](https://gdal.org/en/stable/user/virtual_file_systems.html#vsicurl-http-https-ftp-files-random-access) 
